@@ -28,9 +28,9 @@ class Dass(models.Model):
         return self.name
 
 
-class Player(models.Model):
+class Character(models.Model):
     name = models.CharField(max_length=255)
-    user = models.OneToOneField(User)
+    user = models.ForeignKey(User)
     race = models.OneToOneField(Race)
     dass = models.OneToOneField(Dass)
     frc_bns = models.IntegerField()
