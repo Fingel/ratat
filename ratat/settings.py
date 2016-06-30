@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'registration',
     'django_extensions',
+    'rest_framework',
     'bootstrap3',
     'ratat.players',
 ]

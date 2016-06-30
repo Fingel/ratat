@@ -16,9 +16,18 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic.base import TemplateView
+from rest_framework.routers import DefaultRouter
+
+from ratat.players.views import RaceViewSet, DassViewSet, CharacterViewSet
+
+router = DefaultRouter()
+router.register(r'races', RaceViewSet)
+router.register(r'dasses', DassViewSet)
+router.register(r'characters', CharacterViewSet, base_name='character')
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^api/', include(router.urls))
 ]

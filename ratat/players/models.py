@@ -31,8 +31,8 @@ class Dass(models.Model):
 class Character(models.Model):
     name = models.CharField(max_length=255)
     user = models.ForeignKey(User)
-    race = models.OneToOneField(Race)
-    dass = models.OneToOneField(Dass)
+    race = models.ForeignKey(Race)
+    dass = models.ForeignKey(Dass)
     frc_bns = models.IntegerField()
     sta_bns = models.IntegerField()
     agi_bns = models.IntegerField()
